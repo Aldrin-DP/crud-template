@@ -23,7 +23,10 @@
                 <p>{{ auth()->user()->name }}</p>
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
-                    <button class="bg-gray-100 text-black opacity-100 px-3 py-1 rounded uppercase tracking-wide font-medium cursor-pointer hover:bg-gray-950 hover:text-gray-100">Logout</button>
+                    <button class="flex items-center gap-1 bg-gray-100 text-black opacity-100 px-3 py-2 rounded uppercase tracking-wide font-medium text-sm cursor-pointer hover:bg-gray-950 hover:text-gray-100">
+                        Logout
+                        <x-tabler-logout width="20"/>
+                    </button>
                 </form>  
             @endauth
             @guest
