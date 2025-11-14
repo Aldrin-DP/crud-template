@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 
@@ -22,8 +23,12 @@ Route::middleware('auth')->group(function (){
     Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
     Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    // Route::patch('/profile', []);
 });
 
 Route::middleware(['auth', 'admin'])->group(function (){
     Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 });
+
